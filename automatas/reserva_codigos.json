@@ -1,0 +1,7 @@
+{
+  "validar": "1",
+  "reservar": "2",
+  "consumir": "3",
+  "liberar": "4",
+  "rechazar": "5"
+}

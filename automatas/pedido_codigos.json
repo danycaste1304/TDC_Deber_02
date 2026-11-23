@@ -1,0 +1,9 @@
+{
+  "confirmar": "1",
+  "reservar": "2",
+  "preparar": "3",
+  "empacar": "4",
+  "despachar": "5",
+  "entregar": "6",
+  "cancelar": "7"
+}

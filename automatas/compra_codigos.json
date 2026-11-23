@@ -1,0 +1,8 @@
+{
+  "aprobar": "1",
+  "enviar": "2",
+  "recibir": "3",
+  "cerrar": "4",
+  "rechazar": "5",
+  "cancelar": "6"
+}

@@ -1,0 +1,46 @@
+{
+  "dirigido": true,
+  "bloqueados": [
+    "X"
+  ],
+  "origen": "R",
+  "destino": "D",
+  "unidades": "metros",
+  "aristas": [
+    [
+      "R",
+      "B",
+      2
+    ],
+    [
+      "R",
+      "A",
+      8
+    ],
+    [
+      "B",
+      "A",
+      2
+    ],
+    [
+      "B",
+      "P",
+      9
+    ],
+    [
+      "A",
+      "P",
+      3
+    ],
+    [
+      "P",
+      "E",
+      2
+    ],
+    [
+      "E",
+      "D",
+      2
+    ]
+  ]
+}
