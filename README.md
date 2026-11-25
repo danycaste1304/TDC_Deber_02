@@ -2,7 +2,7 @@
 
 **Integrantes:** Daniela Castellanos, Jeanneth Cabascango y Alejandro Guamán · Repositorio: https://github.com/danycaste1304/TDC_Deber_02
 
-Entrega reproducible para Teoría de la Computación. El informe en `informe.pdf` reúne los modelos y la clasificación de diez correos. Está compilado desde `informe.tex` en Times New Roman de 12 puntos. La presentación de diez diapositivas usa la plantilla proporcionada.
+Entrega reproducible para Teoría de la Computación. El informe en `informe.pdf` reúne los modelos y la clasificación de diez correos. Está compilado desde `informe.tex` en Times New Roman de 12 puntos. La presentación tiene diez diapositivas.
 
 ## Ejecutar
 
@@ -24,6 +24,6 @@ No se requieren paquetes externos para el código ni las pruebas. `python3 verif
 - `sprints.md`: tres hitos de la última semana y evidencias verificables.
 - `presentacion_LOGISTPULSE.pptx` y `presentacion_LOGISTPULSE.pdf`: presentación editable y versión PDF; `presentacion.md`: distribución del contenido en 9 minutos.
 
-Los datos del simulador son ficticios. La clasificación NP indica pertenencia demostrada, sin inferir que el caso quede fuera de P.
+La clasificación NP indica pertenencia demostrada, sin inferir que el caso quede fuera de P.
 
 **Evidencia de autómatas:** `automatas/resultados_jff.md` y `automatas/resultados_visuales/` contienen doce pruebas ejecutadas leyendo los `.jff`. Los diagramas están en `automatas/diagramas_referencia/`.
