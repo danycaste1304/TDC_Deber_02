@@ -78,6 +78,6 @@ def footer(canvas,doc):
     canvas.restoreState()
 
 doc=SimpleDocTemplate(str(base/'informe.pdf'),pagesize=A4,rightMargin=42,leftMargin=42,topMargin=42,bottomMargin=48,
-                      title='Fundamentación formal de LOGISTPULSE',author='Equipo LOGISTPULSE')
+                      title='Fundamentación formal de LOGISTPULSE',author='Daniela Castellanos, Janneth Cabascango, Alejandro Guamán')
 doc.build(story,onFirstPage=footer,onLaterPages=footer)
 print(base/'informe.pdf')

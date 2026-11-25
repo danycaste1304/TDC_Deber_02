@@ -1,7 +1,8 @@
 # Fundamentación formal de LOGISTPULSE
 
 **Deber 2 · Teoría de la Computación · USFQ · 22 de noviembre de 2026**  
-**Equipo:** completar nombres y códigos antes de entregar.
+**Equipo:** Daniela Castellanos · Janneth Cabascango · Alejandro Guamán  
+**Repositorio:** https://github.com/danycaste1304/TDC_Deber_02
 
 Este informe modela tres procesos logísticos como autómatas, calcula una ruta de AMR, especifica FEFO y reposición, y fundamenta diez casos del simulador mediante algoritmos, verificadores y reducciones. El código y las pruebas acompañan el informe. Todos los grafos y números usados son los datos didácticos de la consigna o del simulador.
 
@@ -15,7 +16,7 @@ Un autómata por proceso es la quíntupla (Q, Σ, q₀, F, δ). Las tablas compl
 
 **Compra.** Q = {Borrador, Aprobada, Enviada, Recibida, Cerrada, Rechazada, Cancelada}; Σ = {aprobar, enviar, recibir, cerrar, rechazar, cancelar}; q₀ = Borrador; F = {Cerrada, Rechazada, Cancelada}. δ principal: Borrador --aprobar→ Aprobada --enviar→ Enviada --recibir→ Recibida --cerrar→ Cerrada. Rechazar desde Borrador y cancelar desde Borrador o Aprobada son cierres alternos. Desde Rechazada no se puede enviar.
 
-Los doce resultados se reproducen con `python3 verificar_automatas.py`. Las cadenas en JFLAP usan símbolos de un carácter; cada archivo `*_codigos.json` traduce eventos a símbolos. El equipo debe ejecutar y capturar las pruebas en JFLAP para aportar la evidencia visual exigida.
+Los doce resultados se reproducen con `python3 verificar_automatas.py`. Las cadenas en JFLAP usan símbolos de un carácter; cada archivo `*_codigos.json` traduce eventos a símbolos. Las capturas de ejecución en JFLAP (*Input → Multiple Run*) se guardan en `automatas/capturas/`, según la guía de `automatas/secuencias.md`.
 
 ## 2. Grafo de planta y ruta del AMR
 
@@ -136,4 +137,4 @@ En cambio, la pregunta general sobre si un programa arbitrario se detiene en una
 
 `logistpulse.py` separa funciones puras de `demo.py`, que presenta resultados. `tests/test_logistpulse.py` incluye casos normales, límite e inválidos: ruta encontrada y ausente, origen=destino, peso negativo, FEFO con empate, demanda cero e insuficiente, reposición con y sin pedido, y certificados válidos y falsos. El comando `python3 -m unittest discover -s tests -v` terminó con tres grupos de pruebas correctos; `python3 verificar_automatas.py` produjo seis aceptaciones y seis rechazos esperados. El demo imprimió AMR 11 m, FEFO A:2/B:2, posición 23/sugerencia 27, Vertex Cover {B} y flujo 10.
 
-El código didáctico de los casos NP-completos usa búsqueda exacta y se limita a instancias pequeñas. Los verificadores presuponen entradas estructuralmente válidas conforme a las restricciones declaradas; las funciones operativas centrales sí rechazan origen inexistente, pesos negativos, cantidades negativas y parámetros de reposición incoherentes. Antes de la entrega académica, el equipo debe registrar responsables reales, ejecutar las cadenas en la interfaz JFLAP, revisar el PDF y subir el repositorio al espacio del curso.
+El código didáctico de los casos NP-completos usa búsqueda exacta y se limita a instancias pequeñas. Los verificadores presuponen entradas estructuralmente válidas conforme a las restricciones declaradas; las funciones operativas centrales sí rechazan origen inexistente, pesos negativos, cantidades negativas y parámetros de reposición incoherentes. El trabajo se repartió en partes iguales: Daniela Castellanos (autómatas y grafo, Sprint 1), Janneth Cabascango (algoritmos, inventario y pruebas, Sprint 2) y Alejandro Guamán (fichas de complejidad, decidibilidad e informe, Sprint 3); cada integrante revisó el trabajo de otro. Repositorio: https://github.com/danycaste1304/TDC_Deber_02.

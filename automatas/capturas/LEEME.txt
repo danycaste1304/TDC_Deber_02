@@ -1,0 +1,2 @@
+Capturas de JFLAP (Input → Multiple Run): pedido.png, reserva.png, compra.png.
+Ver la tabla en ../secuencias.md.

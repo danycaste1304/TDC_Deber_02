@@ -1,11 +1,13 @@
 # LOGISTPULSE Deber 2
 
+**Integrantes:** Daniela Castellanos, Janneth Cabascango y Alejandro Guamán · Repositorio: https://github.com/danycaste1304/TDC_Deber_02
+
 Entrega reproducible para Teoría de la Computación. El informe en `informe.pdf` reúne los modelos, la clasificación de diez correos y el guion de exposición. Los modelos editables están en `automatas/`; el grafo y sus datos, en `grafo/`.
 
 ## Ejecutar
 
 ```sh
-cd Deber_02
+cd TDC_Deber_02
 python3 -m unittest discover -s tests -v
 python3 demo.py
 ```
@@ -16,7 +18,7 @@ No se requieren paquetes externos para el código ni las pruebas. Abrir los arch
 
 - `logistpulse.py`: rutas, inventario, flujo y verificadores/búsquedas de los diez casos.
 - `tests/`: pruebas normales, límite e inválidas.
-- `automatas/`: tres DFA JFLAP, diagramas SVG y secuencias.
+- `automatas/`: tres DFA JFLAP, diagramas SVG, secuencias y `capturas/` de JFLAP.
 - `grafo/`: grafo de planta ponderado, dirigido y datos JSON.
 - `informe.md` y `informe.pdf`: desarrollo completo y versión para entrega.
 - `sprints.md`: backlog, revisiones y retrospectivas.

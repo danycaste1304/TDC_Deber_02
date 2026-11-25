@@ -25,4 +25,23 @@ La función δ es exactamente la lista de aristas en `generar_modelos.py`, repro
 | Compra | rechazar, enviar | δ(Rechazada, enviar) indefinida | Rechaza |
 | Compra | enviar | δ(Borrador, enviar) indefinida | Rechaza |
 
-Reproducción: `python3 verificar_automatas.py` verifica las doce secuencias con la misma δ que genera los `.jff`. Para evidencia visual adicional, abrir cada `.jff` en JFLAP y ejecutar las cadenas codificadas mediante *Input → Multiple Run*; guardar capturas de esa ejecución si el docente exige evidencia de la interfaz.
+Reproducción: `python3 verificar_automatas.py` verifica las doce secuencias con la misma δ que genera los `.jff`.
+
+## Ejecución en JFLAP y capturas
+
+Abrir cada `.jff` en JFLAP → *Input → Multiple Run*, pegar las cuatro cadenas codificadas del modelo y pulsar *Run Inputs*. Guardar la captura de la tabla de resultados en `automatas/capturas/` con el nombre indicado.
+
+| Modelo (responsable) | Cadena | Eventos | Esperado | Captura |
+|---|---|---|---|---|
+| Pedido (Daniela Castellanos) | `123456` | confirmar…entregar | Accept | `capturas/pedido.png` |
+| | `7` | cancelar | Accept | |
+| | `5` | despachar | Reject | |
+| | `15` | confirmar, despachar | Reject | |
+| Reserva (Janneth Cabascango) | `123` | validar, reservar, consumir | Accept | `capturas/reserva.png` |
+| | `124` | validar, reservar, liberar | Accept | |
+| | `3` | consumir | Reject | |
+| | `13` | validar, consumir | Reject | |
+| Compra (Alejandro Guamán) | `1234` | aprobar, enviar, recibir, cerrar | Accept | `capturas/compra.png` |
+| | `5` | rechazar | Accept | |
+| | `52` | rechazar, enviar | Reject | |
+| | `2` | enviar | Reject | |
