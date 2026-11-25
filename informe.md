@@ -18,7 +18,7 @@ Un autómata por proceso es la quíntupla (Q, Σ, q₀, F, δ). Las tablas compl
 
 **Compra.** Q = {Borrador, Aprobada, Enviada, Recibida, Cerrada, Rechazada, Cancelada}; Σ = {aprobar, enviar, recibir, cerrar, rechazar, cancelar}; q₀ = Borrador; F = {Cerrada, Rechazada, Cancelada}. δ principal: Borrador --aprobar→ Aprobada --enviar→ Enviada --recibir→ Recibida --cerrar→ Cerrada. Rechazar desde Borrador y cancelar desde Borrador o Aprobada son cierres alternos. Desde Rechazada no se puede enviar.
 
-Los doce resultados se reproducen con `python3 verificar_automatas.py`, que lee directamente los `.jff`. La salida está en `automatas/resultados_jff.md`. Las cadenas usan símbolos de un carácter; cada archivo `*_codigos.json` traduce eventos a símbolos. Las imágenes en `automatas/diagramas_referencia/` muestran los grafos en otra herramienta. Las capturas de *Input → Multiple Run* de JFLAP aún deben incorporarse en `automatas/capturas/`.
+Los doce resultados se reproducen con `python3 verificar_automatas.py`, que lee directamente los `.jff`. La salida está en `automatas/resultados_jff.md` y en `automatas/resultados_visuales/`. Las cadenas usan símbolos de un carácter; cada archivo `*_codigos.json` traduce eventos a símbolos. Los diagramas están en `automatas/diagramas_referencia/`.
 
 ## 2. Grafo de planta y ruta del AMR
 

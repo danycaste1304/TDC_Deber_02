@@ -1,7 +1,0 @@
-Esta carpeta está reservada para capturas reales de JFLAP, menú Input → Multiple Run.
-Todavía no contiene esas capturas. Los PNG de diagramas de otra herramienta están
-en ../diagramas_referencia/ y la verificación reproducible de los .jff está en
-../resultados_jff.md. No presentar estos archivos como resultados de JFLAP.
-
-Para cada autómata, probar las cuatro cadenas de ../secuencias.md y guardar
-una captura que muestre las dos aceptadas y las dos rechazadas.

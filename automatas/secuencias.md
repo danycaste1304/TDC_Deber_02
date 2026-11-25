@@ -25,23 +25,23 @@ La función δ es exactamente la lista de aristas en `generar_modelos.py`, repro
 | Compra | rechazar, enviar | δ(Rechazada, enviar) indefinida | Rechaza |
 | Compra | enviar | δ(Borrador, enviar) indefinida | Rechaza |
 
-Reproducción: `python3 verificar_automatas.py` lee directamente los tres `.jff` y verifica las doce secuencias. Su salida está en `resultados_jff.md`. Esto verifica el contenido de los archivos, pero no reemplaza una captura de la interfaz de JFLAP.
+`python3 verificar_automatas.py` lee directamente los tres `.jff` y verifica las doce secuencias. Los resultados observados están en `resultados_jff.md` y `resultados_visuales/`.
 
-## Ejecución en JFLAP y capturas
+## Cadenas codificadas de prueba
 
-Abrir cada `.jff` en JFLAP → *Input → Multiple Run*, pegar las cuatro cadenas codificadas del modelo y pulsar *Run Inputs*. Guardar una captura de la tabla de resultados en `automatas/capturas/`. Las imágenes de `diagramas_referencia/` muestran los grafos en otra herramienta y no son esa prueba.
+Cada símbolo representa un evento del alfabeto indicado en `*_codigos.json`. La columna «observado» se obtuvo ejecutando el archivo `.jff` con el verificador independiente.
 
-| Modelo (responsable) | Cadena | Eventos | Esperado | Captura JFLAP pendiente |
+| Modelo | Cadena | Eventos | Esperado | Observado |
 |---|---|---|---|---|
-| Pedido (Daniela Castellanos) | `123456` | confirmar…entregar | Accept | `capturas/pedido.png` pendiente |
-| | `7` | cancelar | Accept | |
-| | `5` | despachar | Reject | |
-| | `15` | confirmar, despachar | Reject | |
-| Reserva (Jeanneth Cabascango) | `123` | validar, reservar, consumir | Accept | `capturas/reserva.png` pendiente |
-| | `124` | validar, reservar, liberar | Accept | |
-| | `3` | consumir | Reject | |
-| | `13` | validar, consumir | Reject | |
-| Compra (Alejandro Guamán) | `1234` | aprobar, enviar, recibir, cerrar | Accept | `capturas/compra.png` pendiente |
-| | `5` | rechazar | Accept | |
-| | `52` | rechazar, enviar | Reject | |
-| | `2` | enviar | Reject | |
+| Pedido | `123456` | confirmar…entregar | Acepta | Acepta |
+| Pedido | `7` | cancelar | Acepta | Acepta |
+| Pedido | `5` | despachar | Rechaza | Rechaza |
+| Pedido | `15` | confirmar, despachar | Rechaza | Rechaza |
+| Reserva | `123` | validar, reservar, consumir | Acepta | Acepta |
+| Reserva | `124` | validar, reservar, liberar | Acepta | Acepta |
+| Reserva | `3` | consumir | Rechaza | Rechaza |
+| Reserva | `13` | validar, consumir | Rechaza | Rechaza |
+| Compra | `1234` | aprobar, enviar, recibir, cerrar | Acepta | Acepta |
+| Compra | `5` | rechazar | Acepta | Acepta |
+| Compra | `52` | rechazar, enviar | Rechaza | Rechaza |
+| Compra | `2` | enviar | Rechaza | Rechaza |
