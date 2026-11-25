@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LOGISTPULSE · Deber 2</title>
+<style>
+:root{--azul:#17375e;--claro:#f3f7fb;--celeste:#2776bb;--verde:#148458;--rojo:#ba2635}
+*{box-sizing:border-box}body{margin:0;background:#0e233b;color:#142b45;font-family:Arial,Helvetica,sans-serif}
+.slide{display:none;width:min(96vw,1280px);aspect-ratio:16/9;margin:2vh auto;padding:4.4% 5%;background:white;border-radius:12px;box-shadow:0 18px 50px #0005;position:relative;overflow:hidden}
+.slide.active{display:block}.slide:before{content:"";position:absolute;top:0;left:0;right:0;height:12px;background:#c52b3d}
+h1{font-size:clamp(30px,3.2vw,50px);line-height:1.1;color:var(--azul);margin:.2em 0 .35em}h2{font-size:clamp(25px,2.55vw,38px);color:var(--azul);margin:0 0 .55em}h3{font-size:clamp(17px,1.3vw,22px);color:var(--celeste);margin:0 0 .5em}
+p,li{font-size:clamp(15px,1.25vw,21px);line-height:1.36}ul{padding-left:1.4em}li{margin:.22em 0}.lead{font-size:clamp(21px,1.7vw,28px);color:#35516e}.small{font-size:clamp(12px,.95vw,15px);color:#4e657d}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.thirds{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:var(--claro);padding:18px;border-radius:10px;border-top:4px solid var(--celeste)}.card p{font-size:clamp(14px,1.12vw,18px)}.card strong{color:var(--azul)}.tag{display:inline-block;border-radius:30px;padding:.25em .7em;background:#e6f2fc;color:var(--azul);font-size:17px;font-weight:bold}
+.equation{font-size:clamp(20px,1.65vw,27px);font-weight:bold;color:var(--azul);background:#eaf3fb;padding:.65em 1em;border-radius:10px;margin:.7em 0}.result{color:var(--verde);font-weight:bold}.warning{color:var(--rojo);font-weight:bold}
+.slide img{max-width:100%;max-height:310px;object-fit:contain}.foot{position:absolute;bottom:2%;left:5%;right:5%;font-size:13px;color:#60758c;display:flex;justify-content:space-between}.controls{position:fixed;bottom:10px;right:20px;color:white;font-size:14px}.controls button{font-size:16px;padding:6px 14px;cursor:pointer}.notes{display:none}.wideimage{width:100%;height:310px;object-fit:contain}
+@media print{body{background:white}.slide{display:block!important;width:100vw;height:56.25vw;max-height:100vh;margin:0;border-radius:0;box-shadow:none;page-break-after:always}.controls{display:none}@page{size:landscape;margin:0}}
+</style>
+</head>
+<body>
+<section class="slide active"><span class="tag">Teoría de la Computación · USFQ</span><h1>LOGISTPULSE</h1><p class="lead">Autómatas, rutas, inventario y límites computacionales</p><p>Daniela Castellanos · Jeanneth Cabascango · Alejandro Guamán</p><div class="equation">Del proceso logístico a un modelo verificable</div><div class="foot"><span>Deber 2</span><span>1 / 8 · 0:45</span></div><aside class="notes">Presentar el alcance y la pregunta central. P está contenido en NP.</aside></section>
+
+<section class="slide"><h2>Tres procesos como autómatas</h2><div class="thirds"><div class="card"><h3>Pedido</h3><p>Borrador → Confirmado → Reservado → Preparación → Empacado → Despachado → Entregado</p><p><strong>Cierre alterno:</strong> Cancelado</p></div><div class="card"><h3>Reserva</h3><p>Solicitada → Validada → Reservada → Consumida</p><p><strong>Cierres alternos:</strong> Liberada y Rechazada</p></div><div class="card"><h3>Compra</h3><p>Borrador → Aprobada → Enviada → Recibida → Cerrada</p><p><strong>Cierres alternos:</strong> Rechazada y Cancelada</p></div></div><p>Para cada DFA: Q, Σ, q₀, F y δ. Una transición ausente rechaza la secuencia.</p><div class="foot"><span>Modelos .jff y tabla de transiciones</span><span>2 / 8 · 1:15</span></div></section>
+
+<section class="slide"><h2>Doce secuencias verificadas</h2><div class="grid"><div class="card"><h3>Casos válidos</h3><ul><li>Pedido: <code>123456</code> y <code>7</code></li><li>Reserva: <code>123</code> y <code>124</code></li><li>Compra: <code>1234</code> y <code>5</code></li></ul></div><div class="card"><h3>Casos inválidos</h3><ul><li>Pedido: <code>5</code> y <code>15</code></li><li>Reserva: <code>3</code> y <code>13</code></li><li>Compra: <code>52</code> y <code>2</code></li></ul></div></div><p class="result">El verificador lee los tres archivos .jff y obtiene 6 aceptaciones y 6 rechazos esperados.</p><p class="small">Archivo: automatas/resultados_jff.md. La captura de Input → Multiple Run en JFLAP aún debe añadirse.</p><div class="foot"><span>Prueba reproducible del archivo</span><span>3 / 8 · 0:45</span></div></section>
+
+<section class="slide"><h2>Ruta del AMR en la planta</h2><img class="wideimage" src="grafo/planta.svg" alt="Grafo de planta con ruta R B A P E D"><div class="grid"><p><strong>Modelo:</strong> grafo dirigido, pesos no negativos en metros, zona X bloqueada.</p><p><strong>Dijkstra:</strong> O((V+E) log V) tiempo. El predecesor permite reconstruir la ruta.</p></div><div class="foot"><span>Origen R · Destino D · Costo 11 m</span><span>4 / 8 · 1:15</span></div></section>
+
+<section class="slide"><h2>Inventario FEFO y reposición</h2><div class="grid"><div class="card"><h3>FEFO</h3><p>Elegir lotes elegibles por vencimiento y luego por código.</p><p>Excluir vencidos y lotes sin disponibilidad. Reserva atómica si el stock no cubre el pedido.</p><p><strong>O(L log L)</strong> tiempo y O(L) espacio.</p></div><div class="card"><h3>Reposición</h3><p>Posición = disponible + en orden − reservado.</p><p>Si posición ≤ mínimo: sugerir objetivo − posición.</p><p><strong>Ejemplo:</strong> 18 + 10 − 5 = 23; sugerencia = <strong>27</strong>.</p><p><strong>O(P)</strong> tiempo.</p></div></div><div class="foot"><span>Políticas operativas con terminación garantizada</span><span>5 / 8 · 1:15</span></div></section>
+
+<section class="slide"><h2>Diez correos, tres niveles de evidencia</h2><div class="thirds"><div class="card"><h3>3 en P</h3><p>Alcanzabilidad: BFS</p><p>Ruta mínima: Dijkstra</p><p>Flujo máximo: Edmonds–Karp</p></div><div class="card"><h3>4 en NP</h3><p>Isomorfismo de grafos</p><p>Factor acotado</p><p>Logaritmo discreto acotado</p><p>Automorfismo no trivial</p></div><div class="card"><h3>3 NP-completos</h3><p>3-SAT</p><p>TSP de decisión</p><p>Vertex Cover</p></div></div><p>P ⊆ NP. Un certificado verificable no demuestra por sí solo que el problema sea NP-completo.</p><div class="foot"><span>Las fichas justifican algoritmos, certificados y Big-O</span><span>6 / 8 · 1:45</span></div></section>
+
+<section class="slide"><h2>Ejemplo: cubrir corredores</h2><div class="grid"><div class="card"><h3>Pregunta</h3><p>¿Se pueden elegir como máximo k zonas para que cada corredor tenga un extremo elegido?</p><p>Para A–B–C y k=1, el certificado <strong>{B}</strong> cubre las dos aristas.</p></div><div class="card"><h3>Prueba de complejidad</h3><p>Verificar un conjunto requiere O(V+E).</p><p>La reducción desde Vertex Cover es la identidad: grafo y k se copian.</p><p>La búsqueda exacta puede requerir O(2<sup>V</sup>(V+E)).</p></div></div><p class="small">El correo pide cubrir aristas, no dominar vértices vecinos.</p><div class="foot"><span>Certificado y reducción</span><span>7 / 8 · 1:15</span></div></section>
+
+<section class="slide"><h2>Decidible no significa rápido</h2><div class="grid"><div class="card"><h3>Problemas finitos</h3><p>TSP se decide enumerando recorridos finitos. El costo factorial puede ser impracticable para una operación real.</p></div><div class="card"><h3>Problema de la parada</h3><p>Para programas arbitrarios no existe un decisor general que siempre termine y determine si se detienen.</p></div></div><p class="result">Código, pruebas, informe y modelos quedan versionados en el repositorio.</p><p class="small">Para evidencia visual adicional, ejecutar las cadenas en JFLAP Input → Multiple Run.</p><div class="foot"><span>Preguntas del equipo</span><span>8 / 8 · 1:00</span></div></section>
+
+<div class="controls"><button id="prev" aria-label="Anterior">←</button> <span id="counter">1 / 8</span> <button id="next" aria-label="Siguiente">→</button></div>
+<script>
+const slides=[...document.querySelectorAll('.slide')];let current=0;
+function show(n){current=Math.max(0,Math.min(slides.length-1,n));slides.forEach((s,i)=>s.classList.toggle('active',i===current));document.getElementById('counter').textContent=`${current+1} / ${slides.length}`}
+document.getElementById('prev').onclick=()=>show(current-1);document.getElementById('next').onclick=()=>show(current+1);
+document.addEventListener('keydown',e=>{if(['ArrowRight',' ','PageDown'].includes(e.key)){e.preventDefault();show(current+1)}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(current-1)}});
+</script>
+</body></html>

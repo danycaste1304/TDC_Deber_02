@@ -25,23 +25,23 @@ La función δ es exactamente la lista de aristas en `generar_modelos.py`, repro
 | Compra | rechazar, enviar | δ(Rechazada, enviar) indefinida | Rechaza |
 | Compra | enviar | δ(Borrador, enviar) indefinida | Rechaza |
 
-Reproducción: `python3 verificar_automatas.py` verifica las doce secuencias con la misma δ que genera los `.jff`.
+Reproducción: `python3 verificar_automatas.py` lee directamente los tres `.jff` y verifica las doce secuencias. Su salida está en `resultados_jff.md`. Esto verifica el contenido de los archivos, pero no reemplaza una captura de la interfaz de JFLAP.
 
 ## Ejecución en JFLAP y capturas
 
-Abrir cada `.jff` en JFLAP → *Input → Multiple Run*, pegar las cuatro cadenas codificadas del modelo y pulsar *Run Inputs*. Guardar la captura de la tabla de resultados en `automatas/capturas/` con el nombre indicado.
+Abrir cada `.jff` en JFLAP → *Input → Multiple Run*, pegar las cuatro cadenas codificadas del modelo y pulsar *Run Inputs*. Guardar una captura de la tabla de resultados en `automatas/capturas/`. Las imágenes de `diagramas_referencia/` muestran los grafos en otra herramienta y no son esa prueba.
 
-| Modelo (responsable) | Cadena | Eventos | Esperado | Captura |
+| Modelo (responsable) | Cadena | Eventos | Esperado | Captura JFLAP pendiente |
 |---|---|---|---|---|
-| Pedido (Daniela Castellanos) | `123456` | confirmar…entregar | Accept | `capturas/pedido.png` |
+| Pedido (Daniela Castellanos) | `123456` | confirmar…entregar | Accept | `capturas/pedido.png` pendiente |
 | | `7` | cancelar | Accept | |
 | | `5` | despachar | Reject | |
 | | `15` | confirmar, despachar | Reject | |
-| Reserva (Janneth Cabascango) | `123` | validar, reservar, consumir | Accept | `capturas/reserva.png` |
+| Reserva (Jeanneth Cabascango) | `123` | validar, reservar, consumir | Accept | `capturas/reserva.png` pendiente |
 | | `124` | validar, reservar, liberar | Accept | |
 | | `3` | consumir | Reject | |
 | | `13` | validar, consumir | Reject | |
-| Compra (Alejandro Guamán) | `1234` | aprobar, enviar, recibir, cerrar | Accept | `capturas/compra.png` |
+| Compra (Alejandro Guamán) | `1234` | aprobar, enviar, recibir, cerrar | Accept | `capturas/compra.png` pendiente |
 | | `5` | rechazar | Accept | |
 | | `52` | rechazar, enviar | Reject | |
 | | `2` | enviar | Reject | |
